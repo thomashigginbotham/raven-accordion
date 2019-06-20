@@ -1,0 +1,54 @@
+/* ==-- Accordion Item Styles --== */
+
+/* Summary */
+.item-summary {
+  padding: var(--ra-summary-padding, .5rem 1rem);
+  border: var(--ra-summary-border, 1px solid #ddd);
+  border-bottom-width: 0;
+  font-size: var(--ra-summary-font-size, 1.2rem);
+  font-weight: var(--ra-summary-font-weight, 700);
+  color: var(--ra-summary-color, #000);
+  background: var(--ra-summary-background, #eee);
+  cursor: pointer;
+}
+
+:host:last-child .item-summary,
+[open] .item-summary {
+  border-bottom: var(--ra-summary-border, 1px solid #ddd);
+}
+
+/* Content */
+.item-content {
+  padding: var(--ra-content-padding, 1rem);
+  border-right: var(--ra-content-border, 1px solid #ddd);
+  border-left: var(--ra-content-border, 1px solid #ddd);
+  font-size: var(--ra-content-font-size, 1rem);
+  color: var(--ra-content-color, #000);
+  background: var(--ra-content-background, #fff);
+}
+
+:host:last-child [open] .item-content {
+  border-bottom: var(--ra-content-border, 1px solid #ddd);
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[open] .item-content > * {
+  animation: slide .2s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [open] .item-content > * {
+    animation: none;
+  }
+}

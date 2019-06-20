@@ -1,0 +1,22 @@
+/* ==-- Global Styles --== */
+
+body {
+  padding: 0 1rem;
+  font-family: sans-serif;
+}
+
+/* Style Overrides */
+:root {
+  --ra-summary-padding: .5rem 1rem;
+  --ra-summary-border: 1px solid #ddd;
+  --ra-summary-font-size: 1.2rem;
+  --ra-summary-font-weight: 700;
+  --ra-summary-color: #000;
+  --ra-summary-background: #eee;
+
+  --ra-content-padding: 1rem;
+  --ra-content-border: 1px solid #ddd;
+  --ra-content-font-size: 1rem;
+  --ra-content-color: #000;
+  --ra-content-background: #fff;
+}

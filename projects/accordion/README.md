@@ -2,7 +2,7 @@
 
 An Angular component for creating simple accordions.
 
-![Screenshot](screenshots/sample.png)
+![Screenshot](https://raw.githubusercontent.com/thomashigginbotham/raven-accordion/HEAD/screenshots/sample.png)
 
 ## Features
 
