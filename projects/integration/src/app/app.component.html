@@ -1,7 +1,15 @@
 <h1>Raven Accordion</h1>
 
-<raven-accordion [allowMultiOpen]="false">
-  <raven-accordion-item summary="Heading 1">Item 1</raven-accordion-item>
+<raven-accordion [allowMultiOpen]="false" [openItemNotifier]="itemOpened">
+  <raven-accordion-item summary="Heading 1" [open]="true">Item 1</raven-accordion-item>
   <raven-accordion-item summary="Heading 2">Item 2</raven-accordion-item>
   <raven-accordion-item summary="Heading 3">Item 3</raven-accordion-item>
 </raven-accordion>
+
+<h2>Open Items Programmatically</h2>
+
+<p class="actions">
+  <button type="button" (click)="openItem(0)">Open Item 1</button>
+  <button type="button" (click)="openItem(1)">Open Item 2</button>
+  <button type="button" (click)="openItem(2)">Open Item 3</button>
+</p>

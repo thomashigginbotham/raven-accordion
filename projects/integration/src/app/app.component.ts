@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'integration';
+  itemOpened: Subject<number> = new Subject();
+
+  openItem(index: number): void {
+    this.itemOpened.next(index);
+  }
 }

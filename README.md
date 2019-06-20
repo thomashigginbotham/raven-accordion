@@ -42,7 +42,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <raven-accordion [allowMultiOpen]="false">
-      <raven-accordion-item summary="Heading 1">Item 1</raven-accordion-item>
+      <raven-accordion-item summary="Heading 1" [open]="true">Item 1</raven-accordion-item>
       <raven-accordion-item summary="Heading 2">Item 2</raven-accordion-item>
       <raven-accordion-item summary="Heading 3">Item 3</raven-accordion-item>
     </raven-accordion>
@@ -52,13 +52,19 @@ import { Component } from '@angular/core';
 export class AppComponent { }
 ```
 
-### Options
+### Accordion Options
+
+| Option           | Type                  | Description                                                  | Default Value
+| :--------------- | :-------------------- | :----------------------------------------------------------- | :------------
+| allowMultiOpen   | boolean               | Whether to allow multiple items to be open at the same time. | false
+| openItemNotifier | Subject&lt;number&gt; | Should emit an index of an item to open (see FAQ).           | undefined
+
+### Accordion Item Options
 
 | Option         | Type    | Description                                                  | Default Value
 | :------------- | :------ | :----------------------------------------------------------- | :------------
-| allowMultiOpen | boolean | Whether to allow multiple items to be open at the same time. | false
+| open           | boolean | Whether default state of item is open.                       | false
 
-## FAQ
 
 ### Styling
 
@@ -86,6 +92,36 @@ CSS variables are used for styling. Example:
 | --ra-content-font-size   | Font size of item content.      | 1rem
 | --ra-content-color       | Text color of item content.     | #000
 | --ra-content-background  | Background of item content.     | #fff
+
+## FAQ
+
+### How do I open accordion items programmatically?
+
+If you provide a `Subject<number>` to the `openItemNotifier` property of the `RavenAccordion`, you may emit a value that represents the index of the accordion item to open. Here's an example:
+
+**HTML Template**
+
+```html
+<raven-accordion [openItemNotifier]="itemOpened">
+  <raven-accordion-item summary="Heading 1">Item 1</raven-accordion-item>
+  <raven-accordion-item summary="Heading 2">Item 2</raven-accordion-item>
+</raven-accordion>
+
+<button type="button" (click)="openItem(0)">Open Item 1</button>
+<button type="button" (click)="openItem(1)">Open Item 2</button>
+```
+
+**TypeScript**
+
+```ts
+export class AppComponent {
+  itemOpened: Subject<number> = new Subject();
+
+  openItem(index: number): void {
+    this.itemOpened.next(index);
+  }
+}
+```
 
 ## Development
 

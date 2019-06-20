@@ -20,7 +20,7 @@ export class AccordionItemComponent implements OnInit {
   @Output()
   stateChange: EventEmitter<boolean>;
 
-  @ViewChild('details', { static: false })
+  @ViewChild('details', { static: true })
   details: ElementRef;
 
   private _open: boolean;

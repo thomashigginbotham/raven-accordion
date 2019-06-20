@@ -55,11 +55,11 @@ export class AccordionComponent implements OnInit, AfterContentInit {
    * @param index The index of the item to open.
    */
   openItem(index: number): void {
-    if (!this.items || !this.items[index]) {
+    if (!this.items || !this.items.toArray()[index]) {
       throw(`Item with index ${index} does not exist.`);
     }
 
-    this.items[index].open = true;
+    this.items.toArray()[index].open = true;
 
     if (!this.allowMultiOpen) {
       this.closeItemsExcept(index);

@@ -1,0 +1,7 @@
+/* ==-- App Component Styles --== */
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  grid-gap: .5rem;
+}
